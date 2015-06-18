@@ -62,6 +62,10 @@ for bp in seq:
     if bp == 'C' or bp == 'G':
         # increment the count of gc
         gc_count = gc_count + 1
+    # does the same thing but for A and T
+    if bp == 'A' or bp == 'T':
+        at_count = at_count + 1
+
 
 
 # divide the gc_count by the total_count
