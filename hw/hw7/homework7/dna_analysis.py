@@ -98,3 +98,7 @@ print('A-content:', a_content)
 print('T-content:', t_content)
 print('G-content:', g_content)
 print('C-content:', c_content)
+print('Sum Total:', a_count + t_count + g_count + c_count)
+print('Total Count:', total_count)
+print ("Sequence Length:", len(seq))
+
