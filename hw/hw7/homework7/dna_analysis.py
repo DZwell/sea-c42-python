@@ -85,6 +85,7 @@ for bp in seq:
 # divide the gc_count by the total_count
 gc_content = float(gc_count) / total_count
 at_content = float(at_count) / total_count
+at_gc_ratio = float(a_count + t_count) / float(g_count + c_count)
 
 
 
@@ -98,4 +99,5 @@ print('C-content:', c_count)
 print('Sum Total:', a_count + t_count + g_count + c_count)
 print('Total Count:', total_count)
 print ("Sequence Length:", len(seq))
+print("AT/GC Ratio:", at_gc_ratio)
 

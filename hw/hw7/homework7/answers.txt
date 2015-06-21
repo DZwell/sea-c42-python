@@ -43,7 +43,7 @@ Problem 6:
 
 Problem 7:
 
-...
+AT/GC Ratio: 2.6666666666666665
 
 Problem 8:
 
