@@ -85,19 +85,16 @@ for bp in seq:
 # divide the gc_count by the total_count
 gc_content = float(gc_count) / total_count
 at_content = float(at_count) / total_count
-a_content = float(a_count) / total_count
-t_content = float(t_count) / total_count
-g_content = float(g_count) / total_count
-c_content = float(c_count) / total_count
+
 
 
 # Print the answer
 print('GC-content:', gc_content)
 print('AT-content:', at_content)
-print('A-content:', a_content)
-print('T-content:', t_content)
-print('G-content:', g_content)
-print('C-content:', c_content)
+print('A-content:', a_count)
+print('T-content:', t_count)
+print('G-content:', g_count)
+print('C-content:', c_count)
 print('Sum Total:', a_count + t_count + g_count + c_count)
 print('Total Count:', total_count)
 print ("Sequence Length:", len(seq))
