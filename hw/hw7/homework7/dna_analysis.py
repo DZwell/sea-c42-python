@@ -49,13 +49,18 @@ for line in inputfile:
 
 # Total nucleotides seen so far.
 total_count = 0
-# Number of G and C nucleotides seen so far.
+# Number different nucleotides seen so far.
 gc_count = 0
 at_count = 0
 c_count = 0
 g_count = 0
 a_count = 0
 t_count = 0
+
+
+
+# Category of organism
+category = ""
 
 # for each base pair in the string,
 for bp in seq:
@@ -89,6 +94,14 @@ at_gc_ratio = float(a_count + t_count) / float(g_count + c_count)
 
 
 
+# Categorizes organisms
+if (gc_content > float(.6)):
+    category = "high GC content"
+elif (gc_content < float(.4)):
+    category = "low GC content"
+elif (gc_content < float(.6) and gc_content > float(.4)):
+    category = "moderate GC content"
+
 # Print the answer
 print('GC-content:', gc_content)
 print('AT-content:', at_content)
@@ -96,8 +109,11 @@ print('A-content:', a_count)
 print('T-content:', t_count)
 print('G-content:', g_count)
 print('C-content:', c_count)
-print('Sum Total:', a_count + t_count + g_count + c_count)
+print('Sum Count:', a_count + t_count + g_count + c_count)
 print('Total Count:', total_count)
 print ("Sequence Length:", len(seq))
 print("AT/GC Ratio:", at_gc_ratio)
+print("Sequence Length:", len(seq))
+print("AT/GC Ratio:", at_gc_ratio)
+print("GC Classifcation = ", category)
 
