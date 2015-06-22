@@ -24,3 +24,15 @@ def lucas(n):
 
 print(lucas(3))
 
+
+
+def sum_series(n, x=0, y=1):
+    if (n == 0):
+        return 0
+    elif  (n == 1):
+        return 1
+    elif (n > 1):
+         return (sum_series(n -1) + sum_series(n-2))
+
+print(sum_series(4))
+print(sum_series(5, x=2, y=1))
