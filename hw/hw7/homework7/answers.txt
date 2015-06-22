@@ -51,8 +51,10 @@ Problem 8:
 
 Collaboration:
 
-...
+Matt Biggers and Spencer Tower
 
 Reflection:
 
-...
+I learned what data analysis means, and I also am feeling a lot more comfortable with the Python language.
+
+I don't know that I would do anything differently. I think I tackled the problems the best way I could. Advice I would give to future students would be to make sure you're working on the correct branch. I switched back and forth working on HW 6 and HW7, each with their own branch. I used git stash and git stash apply to move my changes to the correct branch, and then had to deal with the merge conflicts that arose from doing that.
