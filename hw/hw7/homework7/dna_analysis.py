@@ -85,6 +85,11 @@ for bp in seq:
         at_count = at_count + 1
         t_count = t_count + 1
 
+    elif (bp !== 'A' or 'C' or 'G' or 'T'):
+        total_count = total_count - 1
+
+
+
 
 
 # divide the gc_count by the total_count
