@@ -47,7 +47,7 @@ AT/GC Ratio: 2.6666666666666665
 
 Problem 8:
 
-...
+GC Classifcation =  moderate GC content
 
 Collaboration:
 
