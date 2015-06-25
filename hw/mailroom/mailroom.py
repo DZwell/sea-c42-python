@@ -1,19 +1,30 @@
 import sys
 
+
+donor_list = [['Frank Zappa'], ['Geroge Benson'], ['Zorro'], ['Vito Corleone']]
+
+
 while True:
 
     def send_thanks():
-        print("To see a list of donors, type 'list'. Otherwise, enter a donor name.")
+        print("Please enter a name, or choose from the following:\n"
+            "list - Print a list of previous donors\n"
+            "quit - Return to main menu")
         answer2 = input('> ')
         if (answer2 == 'list' or answer2 == 'List'):
-            print(donor_list)
-        elif (answer2 == 'q' or answer2 == 'Q'):
+            print(donor_list[:])
+            send_thanks()
+        elif (answer2 == 'quit' or answer2 == 'Quit'):
             prompt_user()
+        else:
+            print("")
 
     def prompt_user():
-        print("What would you like to do?\nSend (T)hank You \nCreate (R)eport\n(Q)uit")
+        print("Welcome to Mailroom Madness\nChoose from the following:\n"
+            "T - Send a (T)hank You \nR - Create (R)eport\n"
+            "quit - Quit the program")
         answer1 = input('> ')
-        if (answer1 == "q" or answer1 == "Q"):
+        if (answer1 == "quit" or answer1 == "Quit"):
             sys.exit()
         elif (answer1 == "t" or answer1 == "T"):
             send_thanks()
