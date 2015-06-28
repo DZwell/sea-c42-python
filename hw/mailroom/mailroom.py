@@ -3,7 +3,7 @@ import sys
 answer1 = ""
 answer2 = ""
 
-donor_list = [['Frank Zappa', 4, 2, 180], ['Geroge Benson', 18, 36, 72],
+donor_list = [['Frank Zappa', 4, 2, 180], ['George Benson', 18, 36, 72],
 ['Zorro', 25, 200, 13], ['Vito Corleone', 5000, 1500, 2500],
 ['Hank Hill', 100, 300, 75]]
 
@@ -16,28 +16,33 @@ while True:
             "quit - Return to main menu")
         answer2 = input('> ')
         if (answer2 == 'list' or answer2 == 'List'):
-            print(donor_list[::]) #Need to print subList[0] to return donor name
+            print(donor_list[::])
             print("\n")
             send_thanks()
         elif (answer2 == 'quit' or answer2 == 'Quit'):
             prompt_user()
         else:
-            if (answer2 in donor_list):
-                print("Enter a donation amount or 'quit:")
-                donation_amount = input('> ')
-                # if (donation_amount.isdigit() == False):
-                #     print("Please enter a number")
-                print("Dear %s,\n\n"
-                    "Thank you so much for your generous donatation of $%d. "
-                    "\nWe here at 'Dogs Are People Too' couldn't succed in "
-                    "advocating for human rights for dogs "
-                    "\nwith out people like you. With election season coming up, "
-                    "your money will go towards a new piece of legislation "
-                    "desinged to give dogs access to free public education.\n"
-                    "\nThank you again,\n\nDaniel Zwelling\n\nPresident, D.A.P.T\n\n "
-                    % (answer2, int(donation_amount)))
+            for i in donor_list:
+                if (answer2 in i):
+                    write_letter()
 
+    def write_letter():
+                    print("Enter a donation amount or 'quit:")
+                    donation_amount = input('> ')
+                    # if (donation_amount.isdigit() == False):
+                    #     print("Please enter a number")
+                    print("Dear %s,\n\n"
+                        "Thank you so much for your generous donatation of $%d. "
+                        "\nWe here at 'Dogs Are People Too' couldn't succed in "
+                        "advocating for human rights for dogs "
+                        "\nwithout people like you. With election season coming up, "
+                        "your money will go towards a new piece of legislation "
+                        "designed to give dogs access to free public education.\n"
+                        "\nThank you again,\n\nDaniel Zwelling\n\nPresident, D.A.P.T\n\n "
+                        % (answer2, int(donation_amount)))
 
+    def new_donor():
+        an
 
     def prompt_user():
         print("\nWelcome to Mailroom Madness\nChoose from the following:\n"
@@ -50,6 +55,12 @@ while True:
             send_thanks()
 
     prompt_user()
+
+
+
+
+
+
 
 
     # def create_report():
