@@ -20,19 +20,26 @@ while True:
         elif (send_thanks.answer2 == 'quit' or send_thanks.answer2 == 'Quit'):
             prompt_user()
         else:
-            for i in donor_list:
-                if (send_thanks.answer2 in i):
+            find_donor()
+
+
+    def find_donor():
+            for name in donor_list:
+                if (send_thanks.answer2 == name[0]):
+                    print("Enter a donation amount or 'quit:")
+                    find_donor.donation_amount = input('> $')
+                    name.append(find_donor.donation_amount)
+                    print('Donor list has been updated.')
                     write_letter()
-                if (send_thanks.answer2 not in i):
-                    new_donor() # keeps calling this even when first if is True
+
+            for name in donor_list:
+                if (send_thanks.answer2 != name[0]):
+                    print("Name not found in donor list. We've added it for you.")
+                    find_donor.donation_amount = input('> $')
+                    donor_list.append([send_thanks.answer2, find_donor.donation_amount])
+                    write_letter()
 
     def write_letter():
-        print("Enter a donation amount or 'quit:")
-        donation_amount = input('> $')
-        donor_list[4].append(donation_amount)
-        if (donation_amount.isdigit() == False):
-            print("Please enter a number\n")
-            write_letter()
         print("Dear %s,\n\n"
             "Thank you so much for your generous donatation of $%d. "
             "\nWe here at 'Dogs Are People Too' couldn't succed in "
@@ -41,13 +48,9 @@ while True:
             "your money will go towards a new piece of legislation "
             "designed to give dogs access to free public education.\n"
             "\nThank you again,\n\nDaniel Zwelling\n\nPresident, D.A.P.T\n\n "
-            % (send_thanks.answer2, int(donation_amount)))
+            % (send_thanks.answer2, int(find_donor.donation_amount)))
 
         send_thanks()
-
-    def new_donor():
-        donor_list.append([send_thanks.answer2])
-        write_letter()
 
     def prompt_user():
         print("\nWelcome to Mailroom Madness\nChoose from the following:\n"
@@ -65,12 +68,16 @@ while True:
         print('Name   | Total | # | Average\n\n' + ('_' * 50))
         for i in donor_list:
             for x in i:
-                name = x[0]
-                total = sum(x[1:])
-        print(name)
-        print(total)
+               print(x)
 
     prompt_user()
+
+
+
+
+
+
+
 
 
 
