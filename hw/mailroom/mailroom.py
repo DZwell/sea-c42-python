@@ -29,9 +29,10 @@ while True:
     def write_letter():
         print("Enter a donation amount or 'quit:")
         donation_amount = input('> $')
-        donor_list[4].append(donation_amount) #Append to [i]
-        # if (donation_amount.isdigit() == False):
-        #     print("Please enter a number")
+        donor_list[4].append(donation_amount)
+        if (donation_amount.isdigit() == False):
+            print("Please enter a number\n")
+            write_letter()
         print("Dear %s,\n\n"
             "Thank you so much for your generous donatation of $%d. "
             "\nWe here at 'Dogs Are People Too' couldn't succed in "
@@ -62,9 +63,16 @@ while True:
 
     def create_report():
         print('Name   | Total | # | Average\n\n' + ('_' * 50))
-
+        for i in donor_list:
+            for x in i:
+                name = x[0]
+                total = sum(x[1:])
+        print(name)
+        print(total)
 
     prompt_user()
+
+
 
 
 
