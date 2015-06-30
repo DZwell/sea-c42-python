@@ -1,0 +1,60 @@
+Name: ...
+CSE 140
+Homework 2
+
+For each problem that requires a written answer, write (or copy-and-paste)
+your answers in this file.  When you are done, you should have replaced all
+the ellipses (the three dots) with your answers.
+
+At the end, you will turn in this file along with your modified
+dna_analysis.py program.
+
+
+Problem 1:
+
+(No answers in this file.)
+
+Problem 2:
+
+'GC-content:', 0.4302926296296296
+
+Problem 3:
+
+It said 'linenum' is not defined since we commented out the declaration of 'linenum'
+
+It said 'GC count' is not defined for the same reason 'linenum' threw an error.
+
+Problem 4:
+
+AT-content: 0.7
+
+Problem 5:
+
+GC-content: 0.2
+AT-content: 0.5333333333333333
+A-content: 0.4
+T-content: 0.13333333333333333
+G-content: 0.06666666666666667
+C-content: 0.13333333333333333
+
+Problem 6:
+
+...
+
+Problem 7:
+
+AT/GC Ratio: 2.6666666666666665
+
+Problem 8:
+
+GC Classifcation =  moderate GC content
+
+Collaboration:
+
+Matt Biggers and Spencer Tower
+
+Reflection:
+
+I learned what data analysis means, and I also am feeling a lot more comfortable with the Python language.
+
+I don't know that I would do anything differently. I think I tackled the problems the best way I could. Advice I would give to future students would be to make sure you're working on the correct branch. I switched back and forth working on HW 6 and HW7, each with their own branch. I used git stash and git stash apply to move my changes to the correct branch, and then had to deal with the merge conflicts that arose from doing that.

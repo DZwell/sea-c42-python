@@ -2,7 +2,7 @@ import sys
 
 
 donor_list = [['Frank Zappa', 4, 2, 180], ['George Benson', 18, 36, 72],
-['Zorro', 25, 200, 13], ['Vito Corleone', 5000, 1500, 2500],
+['Al Capone', 25, 200, 13], ['Vito Corleone', 5000, 1500, 2500],
 ['Hank Hill', 100, 300, 75]]
 
 
@@ -30,7 +30,7 @@ while True:
                     if (find_donor.donation_amount.isdigit() is False):
                         print("Please enter a number\n")
                         find_donor()
-                    name.append(find_donor.donation_amount)
+                    name.append(int(find_donor.donation_amount))
                     print('Donor list has been updated.')
                     write_letter()
 
@@ -42,7 +42,7 @@ while True:
                         print("Please enter a number\n")
                         find_donor()
                     donor_list.append([send_thanks.answer2,
-                    find_donor.donation_amount])
+                    int(find_donor.donation_amount)])
                     write_letter()
 
     def write_letter():
@@ -62,22 +62,22 @@ while True:
         print("\nWelcome to Mailroom Madness\nChoose from the following:\n"
             "T - Send a (T)hank You \nR - Create (R)eport\n"
             "quit - Quit the program")
-        answer1 = input('> ')
-        if (answer1 == "quit" or answer1 == "Quit"):
+        send_thanks.answer2 = input('> ')
+        if (send_thanks.answer2 == "quit" or send_thanks.answer2 == "Quit"):
             sys.exit()
-        elif (answer1 == "t" or answer1 == "T"):
+        elif (send_thanks.answer2 == "t" or send_thanks.answer2 == "T"):
             send_thanks()
-        elif (answer1 == "r" or answer1 == "R"):
+        elif (send_thanks.answer2 == "r" or send_thanks.answer2 == "R"):
             create_report()
 
     def create_report():
-        print('Name   | Total | # | Average\n\n' + ('_' * 50))
+        print('Name\t\t|\tTotal\t|\t#\t|\tAverage\n\n' + ('_' * 50))
         for i in donor_list:
             donor_name = i[0]
             total = sum(i[1:])
             number = len(i)
             average = total / number
-            print('%s  |  $%d  |  %d  |  $%d' %
+            print('%s\t|\t$%d\t|\t%d\t|\t$%d' %
             (donor_name, total, number, average))
     prompt_user()
 
