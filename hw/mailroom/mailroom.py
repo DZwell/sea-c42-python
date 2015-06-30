@@ -22,13 +22,15 @@ while True:
         else:
             find_donor()
 
-
     def find_donor():
             for name in donor_list:
                 if (send_thanks.answer2 == name[0]):
                     print("Enter a donation amount or 'quit:")
                     find_donor.donation_amount = (input('> $'))
-                    name.append(str(find_donor.donation_amount))
+                    if (find_donor.donation_amount.isdigit() is False):
+                        print("Please enter a number\n")
+                        find_donor()
+                    name.append(find_donor.donation_amount)
                     print('Donor list has been updated.')
                     write_letter()
 
@@ -36,8 +38,11 @@ while True:
                 if (send_thanks.answer2 != name[0]):
                     print("Name not found in donor list. We've added it for you.")
                     find_donor.donation_amount = (input('> $'))
+                    if (find_donor.donation_amount.isdigit() is False):
+                        print("Please enter a number\n")
+                        find_donor()
                     donor_list.append([send_thanks.answer2,
-                    str(find_donor.donation_amount)])
+                    find_donor.donation_amount])
                     write_letter()
 
     def write_letter():
@@ -68,11 +73,13 @@ while True:
     def create_report():
         print('Name   | Total | # | Average\n\n' + ('_' * 50))
         for i in donor_list:
+            donor_name = i[0]
             total = sum(i[1:])
             number = len(i)
             average = total / number
-            print(i[0] + ' | ' + '$' + str(total) + ' | ' + str(number) + ' | ' + '$' + str(average))
-
+            print('%s  |  $%d  |  %d  |  $%d' %
+            (donor_name, total, number, average))
     prompt_user()
+
 
 
