@@ -1,9 +1,12 @@
 import sys
 
 
-donor_list = {'Frank Zappa': [4, 2, 180], 'George Benson': [18, 36, 72],
-'Al Capone': [25, 200, 13], 'Vito Corleone': [5000, 1500, 2500],
-'Hank Hill': [100, 300, 75]}
+donor_list = {
+    'Frank Zappa': [4, 2, 180],
+    'George Benson': [18, 36, 72],
+    'Al Capone': [25, 200, 13],
+    'Vito Corleone': [5000, 1500, 2500],
+    'Hank Hill': [100, 300, 75]}
 
 
 while True:
@@ -70,7 +73,7 @@ while True:
         print('Name\t\t|\tTotal\t|\t#\t|\tAverage\n\n' + ('_' * 50))
         for akey in donor_list:
             donor_name = akey
-            # total = sum(akey.values())
+            total = sum(akey.values())
             number = 'number'
             average = 'average'
             print(donor_name)
