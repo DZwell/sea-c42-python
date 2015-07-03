@@ -32,7 +32,7 @@ while True:
                 if (find_donor.donation_amount.isdigit() is False):
                     print("Please enter a number\n")
                     find_donor()
-                donor_list[send_thanks.answer2].append(find_donor.donation_amount)
+                donor_list[send_thanks.answer2].append([find_donor.donation_amount])
                 print('Donor list has been updated.')
                 write_letter()
 
@@ -42,7 +42,7 @@ while True:
                 if (find_donor.donation_amount.isdigit() is False):
                     print("Please enter a number\n")
                     find_donor()
-                donor_list[send_thanks.answer2] = find_donor.donation_amount
+                donor_list[send_thanks.answer2] = [find_donor.donation_amount]
 
     def write_letter():
         print("Dear %s,\n\n"
@@ -73,15 +73,12 @@ while True:
         print('Name\t\t|\tTotal\t|\t#\t|\tAverage\n\n' + ('_' * 50))
         for akey in donor_list:
             donor_name = akey
-            total = sum(akey.values())
-            number = 'number'
-            average = 'average'
-            print(donor_name)
-            print(sum((donor_list[akey])))
-        # print(total)
+            total = sum((donor_list[akey]))
+            number = len(donor_list[akey])
+            average = total / number
+            print('%s\t|\t$%d\t|\t%d\t|\t$%d' %
+            (donor_name, total, number, average))
 
-        # print('%s\t|\t$%d\t|\t%d\t|\t$%d' %
-        # (donor_name, total, number, average))
     prompt_user()
 
 
