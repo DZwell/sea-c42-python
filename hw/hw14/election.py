@@ -99,7 +99,7 @@ def pollster_predictions(poll_rows):
     For a given pollster, uses only the most recent poll for a state.
     """
 
-      output = {}
+    output = {}
 
     pollsterSet = unique_column_values(poll_rows, "Pollster")
     stateSet = unique_column_values(poll_rows, "State")
