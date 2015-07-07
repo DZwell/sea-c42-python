@@ -1,9 +1,12 @@
 import sys
 
 
-donor_list = [['Frank Zappa', 4, 2, 180], ['George Benson', 18, 36, 72],
-['Al Capone', 25, 200, 13], ['Vito Corleone', 5000, 1500, 2500],
-['Hank Hill', 100, 300, 75]]
+donor_list = {
+    'Frank Zappa': [4, 2, 180],
+    'George Benson': [18, 36, 72],
+    'Al Capone': [25, 200, 13],
+    'Vito Corleone': [5000, 1500, 2500],
+    'Hank Hill': [100, 300, 75]}
 
 
 while True:
@@ -14,7 +17,7 @@ while True:
             "quit - Return to main menu")
         send_thanks.answer2 = input('> ')
         if (send_thanks.answer2 == 'list' or send_thanks.answer2 == 'List'):
-            print(donor_list[::])
+            print(list(donor_list.keys()))
             print("\n")
             send_thanks()
         elif (send_thanks.answer2 == 'quit' or send_thanks.answer2 == 'Quit'):
@@ -23,27 +26,23 @@ while True:
             find_donor()
 
     def find_donor():
-            for name in donor_list:
-                if (send_thanks.answer2 == name[0]):
-                    print("Enter a donation amount or 'quit:")
-                    find_donor.donation_amount = (input('> $'))
-                    if (find_donor.donation_amount.isdigit() is False):
-                        print("Please enter a number\n")
-                        find_donor()
-                    name.append(int(find_donor.donation_amount))
-                    print('Donor list has been updated.')
-                    write_letter()
+            if (send_thanks.answer2 in donor_list):
+                print("Enter a donation amount or 'quit:")
+                find_donor.donation_amount = (input('> $'))
+                if (find_donor.donation_amount.isdigit() is False):
+                    print("Please enter a number\n")
+                    find_donor()
+                donor_list[send_thanks.answer2].append([find_donor.donation_amount])
+                print('Donor list has been updated.')
+                write_letter()
 
-            for name in donor_list:
-                if (send_thanks.answer2 != name[0]):
-                    print("Name not found in donor list. We've added it for you.")
-                    find_donor.donation_amount = (input('> $'))
-                    if (find_donor.donation_amount.isdigit() is False):
-                        print("Please enter a number\n")
-                        find_donor()
-                    donor_list.append([send_thanks.answer2,
-                    int(find_donor.donation_amount)])
-                    write_letter()
+            if (send_thanks.answer2 not in donor_list):
+                print("Name not found in donor list. We've added it for you.")
+                find_donor.donation_amount = (input('> $'))
+                if (find_donor.donation_amount.isdigit() is False):
+                    print("Please enter a number\n")
+                    find_donor()
+                donor_list[send_thanks.answer2] = [find_donor.donation_amount]
 
     def write_letter():
         print("Dear %s,\n\n"
@@ -72,13 +71,14 @@ while True:
 
     def create_report():
         print('Name\t\t|\tTotal\t|\t#\t|\tAverage\n\n' + ('_' * 50))
-        for i in donor_list:
-            donor_name = i[0]
-            total = sum(i[1:])
-            number = len(i)
+        for akey in donor_list:
+            donor_name = akey
+            total = sum(donor_list[akey])
+            number = len(donor_list[akey])
             average = total / number
             print('%s\t|\t$%d\t|\t%d\t|\t$%d' %
             (donor_name, total, number, average))
+
     prompt_user()
 
 
