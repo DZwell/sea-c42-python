@@ -73,7 +73,7 @@ while True:
         print('Name\t\t|\tTotal\t|\t#\t|\tAverage\n\n' + ('_' * 50))
         for akey in donor_list:
             donor_name = akey
-            total = sum((donor_list[akey]))
+            total = sum(donor_list[akey])
             number = len(donor_list[akey])
             average = total / number
             print('%s\t|\t$%d\t|\t%d\t|\t$%d' %
