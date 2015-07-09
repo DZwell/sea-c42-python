@@ -25,17 +25,19 @@ def render(page, filename):
    f = io.StringIO()
    page.render(f)
 
+   content = f.getvalue()
 
-   print(f.getvalue())
+
+   print(content)
 
 
-   codecs.open(filename, 'w', encoding="utf-8").write( f.read() )
+   codecs.open(filename, 'w', encoding="utf-8").write(content)
 
 
 ## Step 1
 ##########
 
-page = hr.Element('', '')
+page = hr.Element('html')
 
 page.append(u"Here is a paragraph of text -- there could be more of them, but this is enough  to show that we can do some text")
 
