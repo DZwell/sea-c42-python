@@ -15,6 +15,7 @@ while True:
         print("Please enter a name, or choose from the following:\n"
             "list - Print a list of previous donors\n"
             "quit - Return to main menu")
+        # Use while loop same thing. If 'quit'
         send_thanks.answer2 = input('> ')
         if (send_thanks.answer2 == 'list' or send_thanks.answer2 == 'List'):
             print(list(donor_list.keys()))
@@ -29,12 +30,15 @@ while True:
             if (send_thanks.answer2 in donor_list):
                 print("Enter a donation amount or 'quit:")
                 find_donor.donation_amount = (input('> $'))
+                donor_amt = int(find_donor.donation_amount)
+                print(type(donor_amt))
                 if (find_donor.donation_amount.isdigit() is False):
                     print("Please enter a number\n")
                     find_donor()
-                donor_list[send_thanks.answer2].append([find_donor.donation_amount])
+                donor_list[send_thanks.answer2].append(int(donor_amt))
+                print(type(donor_amt))
                 print('Donor list has been updated.')
-                write_letter()
+                return write_letter()
 
             if (send_thanks.answer2 not in donor_list):
                 print("Name not found in donor list. We've added it for you.")
@@ -42,7 +46,7 @@ while True:
                 if (find_donor.donation_amount.isdigit() is False):
                     print("Please enter a number\n")
                     find_donor()
-                donor_list[send_thanks.answer2] = [find_donor.donation_amount]
+                donor_list[send_thanks.answer2] = int(find_donor.donation_amount)
 
     def write_letter():
         print("Dear %s,\n\n"
@@ -61,6 +65,7 @@ while True:
         print("\nWelcome to Mailroom Madness\nChoose from the following:\n"
             "T - Send a (T)hank You \nR - Create (R)eport\n"
             "quit - Quit the program")
+        # Use while loop 'while not 'Quit' run this code'
         send_thanks.answer2 = input('> ')
         if (send_thanks.answer2 == "quit" or send_thanks.answer2 == "Quit"):
             sys.exit()
