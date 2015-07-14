@@ -73,11 +73,6 @@ class OneLineTag(Element):
         Element.__init__(self, tag, content, **kwargs)
 
     def append(self, content):
-        # The assignment instructs us to override the render method in order to implement
-        # the OneLineTag element. In doing that, we're bypassing the recursion logic in the
-        # base class which is responsible for iterating through the child elements.
-        # Presumably, this element type is not intended for non-string content, so we're
-        # explicitly disallowing it here.
         if not isinstance(content, str):
             raise Exception("OneLineTag content must be a string")
         Element.append(self, content)
