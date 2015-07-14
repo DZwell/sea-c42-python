@@ -23,7 +23,7 @@ def create_report():
 # itterates through dict and prints keys(donor names)
 def donor_names():
     for key in donor_list:
-        print(key)
+        print(key, '\n')
 
 
 def append_donation(donor, dollars):
@@ -41,7 +41,7 @@ def write_thanks(donor, dollars):
             "\nWe here at 'Dogs Are People Too' couldn't succed in "
             "advocating for human rights for dogs "
             "\nwithout people like you. With election season coming up, "
-            "your money will go towards a new piece of legislation "
+            "your money will go towards a new piece of  legislation "
             "designed to give dogs access to free public education.\n"
             "\nThank you again,\n\nDaniel Zwelling\n\nPresident, D.A.P.T\n\n "
             % (donor, dollars))
@@ -57,7 +57,7 @@ if __name__ == '__main__':
     while True:
         user_choice = input("\nWelcome to Mailroom Madness\nChoose from the following:\n"
                     "T - Send a (T)hank You \nR - Create (R)eport\n"
-                    "quit - Quit the program\n")
+                    "quit - Quit the program\n> ")
 
         while True:
             if user_choice == 'R' or user_choice == 'r':
@@ -67,7 +67,7 @@ if __name__ == '__main__':
             elif user_choice == 'T' or user_choice == 't':
                 name = input("Please enter a name, or choose from the following:\n"
                     "list - Print a list of previous donors\n"
-                    "quit - Return to main menu")
+                    "quit - Return to main menu\n> ")
 
                 if name == 'quit':
                     break
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
                 else:
                     try:
-                        amount = int(input('Please enter donation amount\n'))
+                        amount = int(input('Please enter donation amount\n$ '))
                     except ValueError:
                         print('Invalid input, please enter a number')
 
